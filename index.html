@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <title>じゃんけんゲーム</title>
+</head>
+
+<body>
+
+    <header>
+        <h4>自動じゃんけんゲーム　※勝敗説明文は９パターン全部異なります</h4>
+    </header>
+
+    <main style="display:none;">
+        <h5>わたしとジャンケンしましょ！</h5>        
+
+        <ul>
+            <li id="gu_btn">グー</li>
+            <li id="choki_btn">チョキ</li>
+            <li id="pa_btn">パー</li>
+        </ul>
+
+        <div>
+            <span id="pc_hands"></span>
+        </div>
+
+        <h4>勝敗は、</h4>
+
+        <div id="judgment"></div>
+    </main>
+
+    <footer></footer>
+
+
+
+
+    <!-- ここからがじゃんけんの中身 -->
+    <script>
+    $("main").slideDown(500);
+
+
+    // グーを押した場合
+    $("#gu_btn").on("click",function(){
+        const g = Math.ceil(Math.random()*3);
+        let guvs = "";
+        if(g==1){
+            guvs = '<img src="img/gu.png" height="230">';
+            any = "画像はジャジャンケンね（とあるハンターやハンターの技）。あとあいこね";
+        }
+        else if(g==2){
+            guvs = '<img src="img/choki.png" height="230">';
+            any = "相手の戦闘不能により、あなたの勝利！ちな素材は超トアル人２だよ";
+        }
+        else{
+            guvs = '<img src="img/pa.png" height="230">';
+            any = "あなたの負けね。てかドラちゃんのパー珍しくない？w";
+        }
+
+    $("#pc_hands").html(guvs);
+
+    $("#judgment").html(any);
+
+    })
+
+
+    // チョキを押した場合
+    $("#choki_btn").on("click",function(){
+        const c = Math.ceil(Math.random()*3);
+        let chokivs = "";
+        if(c==1){
+            chokivs = '<img src="img/gu.png" height="230">';
+            any = "貴殿の敗北也。残念無念また来年";
+        }
+        else if(c==2){
+            chokivs = '<img src="img/choki.png" height="230">';
+            any = "つかず";
+        }
+        else{
+            chokivs = '<img src="img/pa.png" height="230">';
+            any = "YOU WIN.  PERFECT!（何のネタか分かる？ヒントはストリート格ゲーのやーつ）";
+        }
+
+    $("#pc_hands").html(chokivs);
+
+    $("#judgment").html(any);
+
+    })
+
+
+    // パーを押した場合
+    $("#pa_btn").on("click",function(){
+        const p = Math.ceil(Math.random()*3);
+        let pavs = "";
+        if(p==1){
+            pavs = '<img src="img/gu.png" height="230">';
+            any = "gagner（フランス語で「勝ち」という意味）";
+        }
+        else if(p==2){
+            pavs = '<img src="img/choki.png" height="230">';
+            any = "你输了（中国語普通話で「あなたの負け」という意味）";
+        }
+        else{
+            pavs = '<img src="img/pa.png" height="230">';
+            any = "Unentschieden. Das nächste Mal schlage ich dich, du Bastard!（ドイツ語で「引き分け。次こそぶっ倒すぞテメー！」という意味でございます。）";
+        }
+
+    $("#pc_hands").html(pavs);
+
+    $("#judgment").html(any);
+
+    })
+    
+    </script>
+    <!-- ここまでがじゃんけんの中身 -->
+
+
+
+
+    <!-- いやーーーー、むじーーけど楽しーーーー！！！！！！！ 　スーパーの寿司を喰らいながらのZASSO-->
+</body>
+
+</html>
